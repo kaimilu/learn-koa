@@ -3,6 +3,7 @@ global.Promise = require('bluebird') // 引用蓝鸟异步机制
 const log = require('./utils/log')
 const Koa = require('koa')
 const koaRouter = require('koa-router')
+const models = require('./model/mongo')
 const config = require('./conf/config')
 
 const configName = process.env.NODE_ENV === '"development"' ? 'dev' : 'prod' // 引用对应的配制文件
