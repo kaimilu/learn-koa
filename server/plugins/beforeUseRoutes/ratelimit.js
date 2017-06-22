@@ -1,5 +1,6 @@
 const ratelimit = require('koa-ratelimit')
-
+// 速率限制
+// https://www.npmjs.com/package/koa-ratelimit
 modules.exports = class {
   constructor(options) {
     this.options = options
