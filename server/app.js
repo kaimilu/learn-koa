@@ -57,6 +57,11 @@ module.exports = (async() => {
 
     app.use(router.routes())
 
+    const beforeServerStartArr = laosu.getBeforeServerStartFuncs()
+    for (const middleware of beforeServerStartArr) {
+      await middleware()
+    }
+
     app.listen(config.serverPort, () => {
       log.info(`Koa2 is running at ${config.serverPort}`)
     })
