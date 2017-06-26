@@ -1,7 +1,7 @@
 /**
  * 定义一个全局模型想关的查询对象方法
  */
-mounted.exports = function generateActions(model) {
+module.exports = function generateActions(model) {
   return {
     // 查找全部 异步执行
     findAll: async function (ctx, next) {
