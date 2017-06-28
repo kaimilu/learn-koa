@@ -20,7 +20,7 @@ class blogpack {
    */
   async beforeUseRoutes(...args) {
     for (const plugin of this.plugins) {
-      plugin.beforeUseRoutes && await plugin.beforeUserRoutes(...args)
+      plugin.beforeUseRoutes && await plugin.beforeUseRoutes(...args)
     }
   }
 
@@ -45,6 +45,7 @@ class blogpack {
         needAfterRoutes: routeObj.needAfterRoutes || false
       }))
     }
+    return result
   }
 
   /**

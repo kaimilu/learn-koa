@@ -3,7 +3,7 @@
  */
 
 const base = require('./blogpack.base.config')
-const userRoutePrefix = '../plugins/beforeUseRoutes'
+const useRoutesPrefix = '../plugins/beforeUseRoutes'
 const serverStartPrefix = '../plugins/beforeServerStart'
 const env = process.env
 /**

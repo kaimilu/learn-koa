@@ -8,6 +8,7 @@ const models = require('./model/mongo')
 const redis = require('./model/redis')
 const config = require('./conf/config')
 
+console.log(process.env.NODE_ENV)
 const configName = process.env.NODE_ENV === '"development"' ? 'dev' : 'prod' // 引用对应的配制文件
 const blogpackConfig = require(`./build/blogpack.${configName}.config`)
 blogpackConfig.models = models
@@ -30,7 +31,7 @@ module.exports = (async() => {
     })
 
     const beforeRestfulRoutes = laosu.getBeforeRestfulRoutes()
-    const afterRestfulRoutes = laosu.getafterRestfulRoutes()
+    const afterRestfulRoutes = laosu.getAfterRestfulRoutes()
 
     const middlewareRoutes = await laosu.getMiddlewareRoutes()
 
@@ -58,6 +59,7 @@ module.exports = (async() => {
     app.use(router.routes())
 
     const beforeServerStartArr = laosu.getBeforeServerStartFuncs()
+
     for (const middleware of beforeServerStartArr) {
       await middleware()
     }
@@ -65,7 +67,6 @@ module.exports = (async() => {
     app.listen(config.serverPort, () => {
       log.info(`Koa2 is running at ${config.serverPort}`)
     })
-
   } catch (err) {
     log.error(err)
   }
