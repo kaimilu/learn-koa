@@ -41,7 +41,6 @@ module.exports = function generateActions(model) {
         })
         const result = await builder.exec()
         return ctx.body = result
-
       } catch (error) {
         return ctx.body = error
       }
@@ -51,7 +50,7 @@ module.exports = function generateActions(model) {
       try {
         let select = {}
         let query = ctx.request.query
-        let builder = model.findById(ctx.parse.id)
+        let builder = model.findById(ctx.params.id)
         if (query.select) {
           select = JSON.parse(query.select)
           builder = builder.select(select)
@@ -84,7 +83,7 @@ module.exports = function generateActions(model) {
       }
     },
 
-    updatedById: async function (ctx, next) {
+    updateById: async function (ctx, next) {
       try {
         const result = await model.findByIdAndUpdate(
           ctx.params.id,
@@ -107,6 +106,5 @@ module.exports = function generateActions(model) {
         return ctx.body = error
       }
     }
-
   }
 }

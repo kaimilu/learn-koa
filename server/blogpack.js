@@ -5,11 +5,11 @@
  */
 class blogpack {
   // 构造函数
-  constructor(option) {
-    this.config = option.config || {}
-    this.plugins = option.plugins || {}
-    this.models = option.models
-    this.redis = option.redis
+  constructor(options) {
+    this.config = options.config || {}
+    this.plugins = options.plugins || {}
+    this.models = options.models
+    this.redis = options.redis
   }
 
   /**

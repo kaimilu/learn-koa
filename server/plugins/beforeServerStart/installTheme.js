@@ -12,7 +12,7 @@ module.exports = class {
       let fileName = fileArr[i]
       let theme = require(`${prefix}/${fileName}`)
       let count = await models.theme.find({
-        name: thme.name
+        name: theme.name
       }).count().exec()
       if (count === 0) {
         await models.theme.create(theme)
